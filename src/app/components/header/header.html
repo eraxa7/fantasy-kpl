@@ -1,1 +1,57 @@
-<p>header works!</p>
+<header class="header">
+
+  <div class="logo">
+    <h1>Fantasy KPL</h1>
+  </div>
+
+  <nav class="nav">
+
+    <a href="#">
+      {{
+        currentLanguage === 'kz'
+          ? 'Басты бет'
+          : currentLanguage === 'ru'
+          ? 'Главная'
+          : 'Home'
+      }}
+    </a>
+
+    <a href="#">
+      {{
+        currentLanguage === 'kz'
+          ? 'Құрама'
+          : currentLanguage === 'ru'
+          ? 'Команда'
+          : 'Team'
+      }}
+    </a>
+
+    <a href="#">
+      {{
+        currentLanguage === 'kz'
+          ? 'Ойыншылар'
+          : currentLanguage === 'ru'
+          ? 'Игроки'
+          : 'Players'
+      }}
+    </a>
+
+  </nav>
+
+  <div class="language-switcher">
+
+    <button (click)="setLanguage('kz')">
+      ҚАЗ
+    </button>
+
+    <button (click)="setLanguage('ru')">
+      РУС
+    </button>
+
+    <button (click)="setLanguage('en')">
+      ENG
+    </button>
+
+  </div>
+
+</header>
