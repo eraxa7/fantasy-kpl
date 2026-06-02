@@ -1,0 +1,20 @@
+.main-layout {
+  display: flex;
+  min-height: 600px;
+}
+
+.left-panel {
+  width: 35%;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+}
+
+.right-panel {
+  width: 65%;
+  padding: 20px;
+}
+
+.bottom-panel {
+  border-top: 1px solid #ddd;
+  padding: 20px;
+}
