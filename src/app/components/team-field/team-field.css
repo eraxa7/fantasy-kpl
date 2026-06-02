@@ -1,0 +1,19 @@
+.field {
+  background: #0c8f3d;
+  min-height: 500px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 40px 0;
+}
+
+.position {
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+}
