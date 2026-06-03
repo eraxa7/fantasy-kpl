@@ -1,13 +1,92 @@
-<h2>Ойыншылар</h2>
+<h2>
+  {{
+    languageService.currentLanguage === 'kz'
+      ? 'Ойыншылар'
+      : languageService.currentLanguage === 'ru'
+      ? 'Игроки'
+      : 'Players'
+  }}
+</h2>
 
 <input
   type="text"
-  placeholder="Ойыншыны іздеу..."
+  [placeholder]="
+    languageService.currentLanguage === 'kz'
+      ? 'Іздеу...'
+      : languageService.currentLanguage === 'ru'
+      ? 'Поиск...'
+      : 'Search...'
+  "
 >
 
-<ul>
-  <li>Макс Эбонг</li>
-  <li>Ислам Чесноков</li>
-  <li>Рамазан Каримов</li>
-  <li>Абат Аймбетов</li>
-</ul>
+@for (player of players; track player.nameEn) {
+
+<div class="player-card">
+
+  <strong>
+    {{
+      languageService.currentLanguage === 'kz'
+        ? player.nameKz
+        : languageService.currentLanguage === 'ru'
+        ? player.nameRu
+        : player.nameEn
+    }}
+  </strong>
+
+  <p>
+    {{
+      languageService.currentLanguage === 'kz'
+        ? player.clubKz
+        : languageService.currentLanguage === 'ru'
+        ? player.clubRu
+        : player.clubEn
+    }}
+    |
+{{
+  player.position === 'GK'
+    ? (
+      languageService.currentLanguage === 'kz'
+        ? 'Қақпашы'
+        : languageService.currentLanguage === 'ru'
+        ? 'Вратарь'
+        : 'Goalkeeper'
+    )
+    : player.position === 'DEF'
+    ? (
+      languageService.currentLanguage === 'kz'
+        ? 'Қорғаушы'
+        : languageService.currentLanguage === 'ru'
+        ? 'Защитник'
+        : 'Defender'
+    )
+    : player.position === 'MID'
+    ? (
+      languageService.currentLanguage === 'kz'
+        ? 'Жартылай қорғаушы'
+        : languageService.currentLanguage === 'ru'
+        ? 'Полузащитник'
+        : 'Midfielder'
+    )
+    : (
+      languageService.currentLanguage === 'kz'
+        ? 'Шабуылшы'
+        : languageService.currentLanguage === 'ru'
+        ? 'Нападающий'
+        : 'Forward'
+    )
+}}
+    |
+{{ player.price }}
+
+{{
+  languageService.currentLanguage === 'kz'
+    ? 'млн ₸'
+    : languageService.currentLanguage === 'ru'
+    ? 'млн ₸'
+    : 'million ₸'
+}}
+  </p>
+
+</div>
+
+}

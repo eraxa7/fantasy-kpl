@@ -1,4 +1,29 @@
-<h2>Бюджет</h2>
+<h2>
+  {{
+    languageService.currentLanguage === 'kz'
+      ? 'Бюджет'
+      : languageService.currentLanguage === 'ru'
+      ? 'Бюджет'
+      : 'Budget'
+  }}
+</h2>
 
-<p>Таңдалған ойыншылар: 0 / 15</p>
-<p>Қалған бюджет: 100.0 млн ₸</p>
+<p>
+  {{
+    languageService.currentLanguage === 'kz'
+      ? 'Таңдалған ойыншылар: 0 / 15'
+      : languageService.currentLanguage === 'ru'
+      ? 'Выбранные игроки: 0 / 15'
+      : 'Selected players: 0 / 15'
+  }}
+</p>
+
+<p>
+  {{
+    languageService.currentLanguage === 'kz'
+      ? 'Қалған бюджет: 100.0 млн ₸'
+      : languageService.currentLanguage === 'ru'
+      ? 'Оставшийся бюджет: 100.0 млн ₸'
+      : 'Remaining budget: 100.0 million ₸'
+  }}
+</p>

@@ -8,9 +8,9 @@
 
     <a href="#">
       {{
-        currentLanguage === 'kz'
+        languageService.currentLanguage === 'kz'
           ? 'Басты бет'
-          : currentLanguage === 'ru'
+          : languageService.currentLanguage === 'ru'
           ? 'Главная'
           : 'Home'
       }}
@@ -18,9 +18,9 @@
 
     <a href="#">
       {{
-        currentLanguage === 'kz'
+        languageService.currentLanguage === 'kz'
           ? 'Құрама'
-          : currentLanguage === 'ru'
+          : languageService.currentLanguage === 'ru'
           ? 'Команда'
           : 'Team'
       }}
@@ -28,9 +28,9 @@
 
     <a href="#">
       {{
-        currentLanguage === 'kz'
+        languageService.currentLanguage === 'kz'
           ? 'Ойыншылар'
-          : currentLanguage === 'ru'
+          : languageService.currentLanguage === 'ru'
           ? 'Игроки'
           : 'Players'
       }}
@@ -39,19 +39,9 @@
   </nav>
 
   <div class="language-switcher">
-
-    <button (click)="setLanguage('kz')">
-      ҚАЗ
-    </button>
-
-    <button (click)="setLanguage('ru')">
-      РУС
-    </button>
-
-    <button (click)="setLanguage('en')">
-      ENG
-    </button>
-
+    <button (click)="languageService.setLanguage('kz')">ҚАЗ</button>
+    <button (click)="languageService.setLanguage('ru')">РУС</button>
+    <button (click)="languageService.setLanguage('en')">ENG</button>
   </div>
 
 </header>

@@ -1,23 +1,85 @@
-<h2>Футбол алаңы</h2>
+<h2>
+  {{
+    languageService.currentLanguage === 'kz'
+      ? 'Футбол алаңы'
+      : languageService.currentLanguage === 'ru'
+      ? 'Футбольное поле'
+      : 'Football Field'
+  }}
+</h2>
 
 <div class="field">
-  <div class="position">GK</div>
 
-  <div class="row">
-    <div class="position">DEF</div>
-    <div class="position">DEF</div>
-    <div class="position">DEF</div>
-    <div class="position">DEF</div>
+  <div class="position" title="Goalkeeper">
+    GK
   </div>
 
   <div class="row">
-    <div class="position">MID</div>
-    <div class="position">MID</div>
-    <div class="position">MID</div>
+    <div class="position" title="Left Back">LB</div>
+    <div class="position" title="Center Back">CB</div>
+    <div class="position" title="Center Back">CB</div>
+    <div class="position" title="Right Back">RB</div>
   </div>
 
   <div class="row">
-    <div class="position">FWD</div>
-    <div class="position">FWD</div>
+    <div class="position" title="Left Midfielder">LM</div>
+    <div class="position" title="Central Midfielder">CM</div>
+    <div class="position" title="Central Midfielder">CM</div>
+    <div class="position" title="Right Midfielder">RM</div>
   </div>
+
+  <div class="row">
+    <div class="position" title="Striker">ST</div>
+    <div class="position" title="Striker">ST</div>
+  </div>
+
+</div>
+
+<div class="legend">
+
+  @if (languageService.currentLanguage === 'kz') {
+
+    <p>GK — Қақпашы</p>
+    <p>LB — Сол жақ қорғаушы</p>
+    <p>CB — Орталық қорғаушы</p>
+    <p>RB — Оң жақ қорғаушы</p>
+
+    <p>LM — Сол жақ жартылай қорғаушы</p>
+    <p>CM — Орталық жартылай қорғаушы</p>
+    <p>RM — Оң жақ жартылай қорғаушы</p>
+
+    <p>ST — Шабуылшы</p>
+
+  }
+
+  @if (languageService.currentLanguage === 'ru') {
+
+    <p>GK — Вратарь</p>
+    <p>LB — Левый защитник</p>
+    <p>CB — Центральный защитник</p>
+    <p>RB — Правый защитник</p>
+
+    <p>LM — Левый полузащитник</p>
+    <p>CM — Центральный полузащитник</p>
+    <p>RM — Правый полузащитник</p>
+
+    <p>ST — Нападающий</p>
+
+  }
+
+  @if (languageService.currentLanguage === 'en') {
+
+    <p>GK — Goalkeeper</p>
+    <p>LB — Left Back</p>
+    <p>CB — Centre Back</p>
+    <p>RB — Right Back</p>
+
+    <p>LM — Left Midfielder</p>
+    <p>CM — Central Midfielder</p>
+    <p>RM — Right Midfielder</p>
+
+    <p>ST — Striker</p>
+
+  }
+
 </div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-header',
@@ -8,10 +9,6 @@ import { Component } from '@angular/core';
 })
 export class Header {
 
-  currentLanguage = 'kz';
-
-  setLanguage(language: string) {
-    this.currentLanguage = language;
-  }
+  constructor(public languageService: LanguageService) {}
 
 }
