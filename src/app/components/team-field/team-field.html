@@ -10,76 +10,57 @@
 
 <div class="field">
 
-  <div class="position" title="Goalkeeper">
-    GK
+  <div class="position">GK</div>
+
+  <div class="row">
+    <div class="position">LB</div>
+    <div class="position">CB</div>
+    <div class="position">CB</div>
+    <div class="position">RB</div>
   </div>
 
   <div class="row">
-    <div class="position" title="Left Back">LB</div>
-    <div class="position" title="Center Back">CB</div>
-    <div class="position" title="Center Back">CB</div>
-    <div class="position" title="Right Back">RB</div>
+    <div class="position">LM</div>
+    <div class="position">CM</div>
+    <div class="position">CM</div>
+    <div class="position">RM</div>
   </div>
 
   <div class="row">
-    <div class="position" title="Left Midfielder">LM</div>
-    <div class="position" title="Central Midfielder">CM</div>
-    <div class="position" title="Central Midfielder">CM</div>
-    <div class="position" title="Right Midfielder">RM</div>
-  </div>
-
-  <div class="row">
-    <div class="position" title="Striker">ST</div>
-    <div class="position" title="Striker">ST</div>
+    <div class="position">ST</div>
+    <div class="position">ST</div>
   </div>
 
 </div>
 
-<div class="legend">
+<h3>
+  {{
+    languageService.currentLanguage === 'kz'
+      ? 'Алаңдағы ойыншылар'
+      : languageService.currentLanguage === 'ru'
+      ? 'Игроки команды'
+      : 'Team Players'
+  }}
+</h3>
 
-  @if (languageService.currentLanguage === 'kz') {
+@for (player of fantasyService.selectedTeam; track player.nameEn) {
 
-    <p>GK — Қақпашы</p>
-    <p>LB — Сол жақ қорғаушы</p>
-    <p>CB — Орталық қорғаушы</p>
-    <p>RB — Оң жақ қорғаушы</p>
+<div class="player-card">
 
-    <p>LM — Сол жақ жартылай қорғаушы</p>
-    <p>CM — Орталық жартылай қорғаушы</p>
-    <p>RM — Оң жақ жартылай қорғаушы</p>
+  <strong>
+    {{
+      languageService.currentLanguage === 'kz'
+        ? player.nameKz
+        : languageService.currentLanguage === 'ru'
+        ? player.nameRu
+        : player.nameEn
+    }}
+  </strong>
 
-    <p>ST — Шабуылшы</p>
-
-  }
-
-  @if (languageService.currentLanguage === 'ru') {
-
-    <p>GK — Вратарь</p>
-    <p>LB — Левый защитник</p>
-    <p>CB — Центральный защитник</p>
-    <p>RB — Правый защитник</p>
-
-    <p>LM — Левый полузащитник</p>
-    <p>CM — Центральный полузащитник</p>
-    <p>RM — Правый полузащитник</p>
-
-    <p>ST — Нападающий</p>
-
-  }
-
-  @if (languageService.currentLanguage === 'en') {
-
-    <p>GK — Goalkeeper</p>
-    <p>LB — Left Back</p>
-    <p>CB — Centre Back</p>
-    <p>RB — Right Back</p>
-
-    <p>LM — Left Midfielder</p>
-    <p>CM — Central Midfielder</p>
-    <p>RM — Right Midfielder</p>
-
-    <p>ST — Striker</p>
-
-  }
+  <p>
+    {{ player.position }}
+  </p>
 
 </div>
+
+}

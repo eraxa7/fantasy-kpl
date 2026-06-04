@@ -1,21 +1,31 @@
 .field {
-  background: #0a8f3c;
-  min-height: 500px;
+  width: 100%;
+  max-width: 1417px;
 
-  border-radius: 15px;
+  aspect-ratio: 1417 / 788;
 
-  padding: 20px;
+  margin: 0 auto;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-image: url('/assets/images/kpl.svg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 
-  gap: 40px;
+  display: grid;
+
+  grid-template-rows:
+    18%
+    22%
+    22%
+    22%;
+
+  justify-items: center;
+
+  padding-top: 60px;
 }
-
 .row {
   display: flex;
-  gap: 20px;
+  justify-content: center;
+  gap: 30px;
 }
 
 .position {
@@ -24,27 +34,11 @@
 
   border-radius: 50%;
 
-  background: white;
+  background: rgba(255,255,255,.95);
 
   display: flex;
   justify-content: center;
   align-items: center;
 
   font-weight: bold;
-
-  cursor: pointer;
-
-  transition: 0.2s;
-}
-
-.position:hover {
-  transform: scale(1.1);
-}
-
-.legend {
-  margin-top: 20px;
-}
-
-.legend p {
-  margin: 4px 0;
 }

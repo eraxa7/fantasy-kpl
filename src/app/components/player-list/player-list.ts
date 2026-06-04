@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LanguageService } from '../../services/language.service';
+import { FantasyService } from '../../services/fantasy.service';
 
 @Component({
   selector: 'app-player-list',
@@ -9,9 +10,46 @@ import { LanguageService } from '../../services/language.service';
 })
 export class PlayerList {
 
-  constructor(public languageService: LanguageService) {}
+  constructor(
+  public languageService: LanguageService,
+  public fantasyService: FantasyService
+) {}
+
+  selectPlayer(player: any) {
+
+  if (player.selected) {
+    return;
+  }
+
+  if (this.fantasyService.selectedPlayers >= 15) {
+    alert('Можно выбрать максимум 15 игроков');
+    return;
+  }
+
+  player.selected = true;
+
+this.fantasyService.selectedPlayers++;
+
+  this.fantasyService.budget -= player.price;
+
+  this.fantasyService.selectedTeam.push(player);
+}
+
+removePlayer(player: any) {
+
+  player.selected = false;
+
+  this.fantasyService.selectedPlayers--;
+
+  this.fantasyService.budget += player.price;
+
+  this.fantasyService.selectedTeam = this.fantasyService.selectedTeam.filter(
+    p => p.nameEn !== player.nameEn
+  );
+}
 
   players = [
+
     {
       nameKz: 'Ислам Чесноков',
       nameRu: 'Ислам Чесноков',
@@ -22,7 +60,8 @@ export class PlayerList {
       clubEn: 'Tobol',
 
       position: 'MID',
-      price: 8.5
+      price: 8.5,
+      selected: false
     },
 
     {
@@ -35,7 +74,8 @@ export class PlayerList {
       clubEn: 'Astana',
 
       position: 'MID',
-      price: 7.5
+      price: 7.5,
+      selected: false
     },
 
     {
@@ -48,7 +88,8 @@ export class PlayerList {
       clubEn: 'Adana Demirspor',
 
       position: 'FWD',
-      price: 9.0
+      price: 9.0,
+      selected: false
     },
 
     {
@@ -61,8 +102,10 @@ export class PlayerList {
       clubEn: 'Aktobe',
 
       position: 'DEF',
-      price: 6.5
+      price: 6.5,
+      selected: false
     }
+
   ];
 
 }

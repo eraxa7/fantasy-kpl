@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LanguageService } from '../../services/language.service';
+import { FantasyService } from '../../services/fantasy.service';
 
 @Component({
   selector: 'app-budget-panel',
@@ -9,6 +10,9 @@ import { LanguageService } from '../../services/language.service';
 })
 export class BudgetPanel {
 
-  constructor(public languageService: LanguageService) {}
+ constructor(
+  public languageService: LanguageService,
+  public fantasyService: FantasyService
+) {}
 
 }

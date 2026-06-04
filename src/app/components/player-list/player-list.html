@@ -8,6 +8,28 @@
   }}
 </h2>
 
+<p>
+  {{
+    languageService.currentLanguage === 'kz'
+      ? 'Таңдалған ойыншылар'
+      : languageService.currentLanguage === 'ru'
+      ? 'Выбрано игроков'
+      : 'Selected Players'
+  }}
+: {{ fantasyService.selectedPlayers }}/15
+</p>
+
+<p>
+  {{
+    languageService.currentLanguage === 'kz'
+      ? 'Қалған бюджет'
+      : languageService.currentLanguage === 'ru'
+      ? 'Осталось бюджета'
+      : 'Remaining Budget'
+  }}
+: {{ fantasyService.budget.toFixed(1) }} млн ₸
+</p>
+
 <input
   type="text"
   [placeholder]="
@@ -34,6 +56,7 @@
   </strong>
 
   <p>
+
     {{
       languageService.currentLanguage === 'kz'
         ? player.clubKz
@@ -41,51 +64,101 @@
         ? player.clubRu
         : player.clubEn
     }}
-    |
-{{
-  player.position === 'GK'
-    ? (
-      languageService.currentLanguage === 'kz'
-        ? 'Қақпашы'
-        : languageService.currentLanguage === 'ru'
-        ? 'Вратарь'
-        : 'Goalkeeper'
-    )
-    : player.position === 'DEF'
-    ? (
-      languageService.currentLanguage === 'kz'
-        ? 'Қорғаушы'
-        : languageService.currentLanguage === 'ru'
-        ? 'Защитник'
-        : 'Defender'
-    )
-    : player.position === 'MID'
-    ? (
-      languageService.currentLanguage === 'kz'
-        ? 'Жартылай қорғаушы'
-        : languageService.currentLanguage === 'ru'
-        ? 'Полузащитник'
-        : 'Midfielder'
-    )
-    : (
-      languageService.currentLanguage === 'kz'
-        ? 'Шабуылшы'
-        : languageService.currentLanguage === 'ru'
-        ? 'Нападающий'
-        : 'Forward'
-    )
-}}
-    |
-{{ player.price }}
 
-{{
-  languageService.currentLanguage === 'kz'
-    ? 'млн ₸'
-    : languageService.currentLanguage === 'ru'
-    ? 'млн ₸'
-    : 'million ₸'
-}}
+    |
+
+    {{ player.position }}
+
+    |
+
+    {{ player.price }} млн ₸
+
   </p>
+
+  <button
+    (click)="selectPlayer(player)"
+    [disabled]="player.selected"
+  >
+
+    {{
+      player.selected
+        ? (
+          languageService.currentLanguage === 'kz'
+            ? 'Таңдалды'
+            : languageService.currentLanguage === 'ru'
+            ? 'Выбран'
+            : 'Selected'
+        )
+        : (
+          languageService.currentLanguage === 'kz'
+            ? 'Таңдау'
+            : languageService.currentLanguage === 'ru'
+            ? 'Выбрать'
+            : 'Select'
+        )
+    }}
+
+  </button>
+
+</div>
+
+}
+
+<h3>
+  {{
+    languageService.currentLanguage === 'kz'
+      ? 'Таңдалған ойыншылар'
+      : languageService.currentLanguage === 'ru'
+      ? 'Выбранные игроки'
+      : 'Selected Players'
+  }}
+</h3>
+
+@for (player of fantasyService.selectedTeam; track player.nameEn) {
+
+<div class="player-card">
+
+  <strong>
+    {{
+      languageService.currentLanguage === 'kz'
+        ? player.nameKz
+        : languageService.currentLanguage === 'ru'
+        ? player.nameRu
+        : player.nameEn
+    }}
+  </strong>
+
+  <p>
+
+    {{
+      languageService.currentLanguage === 'kz'
+        ? player.clubKz
+        : languageService.currentLanguage === 'ru'
+        ? player.clubRu
+        : player.clubEn
+    }}
+
+    |
+
+    {{ player.position }}
+
+    |
+
+    {{ player.price }} млн ₸
+
+  </p>
+
+  <button (click)="removePlayer(player)">
+
+    {{
+      languageService.currentLanguage === 'kz'
+        ? 'Өшіру'
+        : languageService.currentLanguage === 'ru'
+        ? 'Удалить'
+        : 'Remove'
+    }}
+
+  </button>
 
 </div>
 

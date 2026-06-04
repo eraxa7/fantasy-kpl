@@ -11,19 +11,23 @@
 <p>
   {{
     languageService.currentLanguage === 'kz'
-      ? 'Таңдалған ойыншылар: 0 / 15'
+      ? 'Таңдалған ойыншылар'
       : languageService.currentLanguage === 'ru'
-      ? 'Выбранные игроки: 0 / 15'
-      : 'Selected players: 0 / 15'
+      ? 'Выбранные игроки'
+      : 'Selected players'
   }}
+  :
+  {{ fantasyService.selectedPlayers }} / 15
 </p>
 
 <p>
   {{
     languageService.currentLanguage === 'kz'
-      ? 'Қалған бюджет: 100.0 млн ₸'
+      ? 'Қалған бюджет'
       : languageService.currentLanguage === 'ru'
-      ? 'Оставшийся бюджет: 100.0 млн ₸'
-      : 'Remaining budget: 100.0 million ₸'
+      ? 'Оставшийся бюджет'
+      : 'Remaining budget'
   }}
+  :
+  {{ fantasyService.budget.toFixed(1) }} млн ₸
 </p>
