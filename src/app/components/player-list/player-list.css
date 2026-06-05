@@ -10,3 +10,32 @@ input {
   margin-bottom: 10px;
   border-radius: 8px;
 }
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filters button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.club-badge {
+  padding: 4px 8px;
+
+  border-radius: 6px;
+
+  background: #e8f5e9;
+
+  font-weight: 600;
+}
+
+.filters button.active {
+  background: #2e7d32;
+
+  color: white;
+}

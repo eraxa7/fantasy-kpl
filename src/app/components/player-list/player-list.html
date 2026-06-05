@@ -32,6 +32,7 @@
 
 <input
   type="text"
+  [(ngModel)]="searchText"
   [placeholder]="
     languageService.currentLanguage === 'kz'
       ? 'Іздеу...'
@@ -41,7 +42,50 @@
   "
 >
 
-@for (player of players; track player.nameEn) {
+<div class="filters">
+
+  <button
+    (click)="selectedPosition='ALL'"
+    [class.active]="selectedPosition === 'ALL'"
+  >
+    ALL
+  </button>
+
+  <button
+    (click)="selectedPosition='GK'"
+    [class.active]="selectedPosition === 'GK'"
+  >
+    GK
+  </button>
+
+  <button
+    (click)="selectedPosition='DEF'"
+    [class.active]="selectedPosition === 'DEF'"
+  >
+    DEF
+  </button>
+
+  <button
+    (click)="selectedPosition='MID'"
+    [class.active]="selectedPosition === 'MID'"
+  >
+    MID
+  </button>
+
+  <button
+    (click)="selectedPosition='FWD'"
+    [class.active]="selectedPosition === 'FWD'"
+  >
+    FWD
+  </button>
+
+</div>
+
+<p>
+  Найдено игроков: {{ filteredPlayers.length }}
+</p>
+
+@for (player of filteredPlayers; track player.nameEn) {
 
 <div class="player-card">
 
@@ -57,13 +101,17 @@
 
   <p>
 
-    {{
-      languageService.currentLanguage === 'kz'
-        ? player.clubKz
-        : languageService.currentLanguage === 'ru'
-        ? player.clubRu
-        : player.clubEn
-    }}
+<span class="club-badge">
+
+  {{
+    languageService.currentLanguage === 'kz'
+      ? player.clubKz
+      : languageService.currentLanguage === 'ru'
+      ? player.clubRu
+      : player.clubEn
+  }}
+
+</span>
 
     |
 

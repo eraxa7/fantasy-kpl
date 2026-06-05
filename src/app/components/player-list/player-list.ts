@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { LanguageService } from '../../services/language.service';
 import { FantasyService } from '../../services/fantasy.service';
 
 @Component({
   selector: 'app-player-list',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './player-list.html',
   styleUrl: './player-list.css'
 })
@@ -14,6 +15,34 @@ export class PlayerList {
   public languageService: LanguageService,
   public fantasyService: FantasyService
 ) {}
+
+searchText = '';
+
+selectedPosition = 'ALL';
+
+get filteredPlayers() {
+
+  return this.players.filter(player => {
+
+    const matchSearch =
+
+      player.nameRu.toLowerCase().includes(this.searchText.toLowerCase()) ||
+
+      player.nameEn.toLowerCase().includes(this.searchText.toLowerCase()) ||
+
+      player.nameKz.toLowerCase().includes(this.searchText.toLowerCase());
+
+    const matchPosition =
+
+      this.selectedPosition === 'ALL' ||
+
+      player.position === this.selectedPosition;
+
+    return matchSearch && matchPosition;
+
+  });
+
+}
 
   selectPlayer(player: any) {
 
