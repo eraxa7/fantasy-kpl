@@ -50,6 +50,30 @@ get filteredPlayers() {
     return;
   }
 
+  const positionCount = this.fantasyService.selectedTeam.filter(
+  p => p.position === player.position
+).length;
+
+if (player.position === 'GK' && positionCount >= 1) {
+  alert('Можно выбрать только 1 вратаря');
+  return;
+}
+
+if (player.position === 'DEF' && positionCount >= 4) {
+  alert('Можно выбрать максимум 4 защитника');
+  return;
+}
+
+if (player.position === 'MID' && positionCount >= 4) {
+  alert('Можно выбрать максимум 4 полузащитника');
+  return;
+}
+
+if (player.position === 'FWD' && positionCount >= 2) {
+  alert('Можно выбрать максимум 2 нападающих');
+  return;
+}
+
   if (this.fantasyService.selectedPlayers >= 15) {
     alert('Можно выбрать максимум 15 игроков');
     return;
@@ -121,20 +145,75 @@ removePlayer(player: any) {
       selected: false
     },
 
-    {
-      nameKz: 'Рамазан Каримов',
-      nameRu: 'Рамазан Каримов',
-      nameEn: 'Ramazan Karimov',
+{
+  nameKz: 'Рамазан Каримов',
+  nameRu: 'Рамазан Каримов',
+  nameEn: 'Ramazan Karimov',
 
-      clubKz: 'Ақтөбе',
-      clubRu: 'Актобе',
-      clubEn: 'Aktobe',
+  clubKz: 'Ақтөбе',
+  clubRu: 'Актобе',
+  clubEn: 'Aktobe',
+
+  position: 'DEF',
+  price: 6.5,
+  selected: false
+},
+
+{
+  nameKz: 'Стас Покатилов',
+  nameRu: 'Стас Покатилов',
+  nameEn: 'Stas Pokatilov',
+
+  clubKz: 'Тобыл',
+  clubRu: 'Тобол',
+  clubEn: 'Tobol',
+
+  position: 'GK',
+  price: 6.0,
+  selected: false
+    },
+
+    {
+      nameKz: 'Нұралы Әліп',
+      nameRu: 'Нуралы Алип',
+      nameEn: 'Nuraly Alip',
+
+      clubKz: 'Зенит',
+      clubRu: 'Зенит',
+      clubEn: 'Zenit',
 
       position: 'DEF',
-      price: 6.5,
+      price: 7.0,
       selected: false
-    }
+    },
 
+    {
+  nameKz: 'Бақтиёр Зайнутдинов',
+  nameRu: 'Бактиёр Зайнутдинов',
+  nameEn: 'Bakhtiyor Zaynutdinov',
+
+  clubKz: 'Бешикташ',
+  clubRu: 'Бешикташ',
+  clubEn: 'Besiktas',
+
+  position: 'MID',
+  price: 8.0,
+  selected: false
+},
+
+{
+  nameKz: 'Айбар Жақсылықов',
+  nameRu: 'Айбар Жаксылыков',
+  nameEn: 'Aibar Zhaksylykov',
+
+  clubKz: 'Қайсар',
+  clubRu: 'Кайсар',
+  clubEn: 'Kaisar',
+
+  position: 'FWD',
+  price: 7.5,
+  selected: false
+},
   ];
 
 }

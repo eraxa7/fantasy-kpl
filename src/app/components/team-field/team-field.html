@@ -10,28 +10,114 @@
 
 <div class="field">
 
-  <div class="position">GK</div>
+<div class="position">
+
+  @if (getGoalkeepers().length > 0) {
+
+{{ getLastName(getGoalkeepers()[0].nameRu) }}
+
+  } @else {
+
+    GK
+
+  }
+
+</div>
 
   <div class="row">
     <div class="position">LB</div>
-    <div class="position">CB</div>
-    <div class="position">CB</div>
+<div class="position">
+
+  @if (getDefenders().length > 0) {
+
+    {{ getLastName(getDefenders()[0].nameRu) }}
+
+  } @else {
+
+    CB
+
+  }
+
+</div>
+<div class="position">
+
+  @if (getDefenders().length > 1) {
+
+    {{ getLastName(getDefenders()[1].nameRu) }}
+
+  } @else {
+
+    CB
+
+  }
+
+</div>
     <div class="position">RB</div>
   </div>
 
   <div class="row">
     <div class="position">LM</div>
-    <div class="position">CM</div>
-    <div class="position">CM</div>
+<div class="position">
+
+  @if (getMidfielders().length > 0) {
+
+    {{ getLastName(getMidfielders()[0].nameRu) }}
+
+  } @else {
+
+    CM
+
+  }
+
+</div>
+<div class="position">
+
+  @if (getMidfielders().length > 1) {
+
+    {{ getLastName(getMidfielders()[1].nameRu) }}
+
+  } @else {
+
+    CM
+
+  }
+
+</div>
     <div class="position">RM</div>
   </div>
 
   <div class="row">
-    <div class="position">ST</div>
-    <div class="position">ST</div>
+<div class="position">
+
+  @if (getForwards().length > 0) {
+
+    {{ getLastName(getForwards()[0].nameRu) }}
+
+  } @else {
+
+    ST
+
+  }
+
+</div>
+<div class="position">
+
+  @if (getForwards().length > 1) {
+
+    {{ getLastName(getForwards()[1].nameRu) }}
+
+  } @else {
+
+    ST
+
+  }
+
+</div>
   </div>
 
 </div>
+
+
 
 <h3>
   {{
