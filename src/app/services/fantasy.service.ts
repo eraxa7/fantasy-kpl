@@ -11,4 +11,20 @@ export class FantasyService {
 
   selectedTeam: any[] = [];
 
+  captain: any = null;
+
+  getTotalPoints() {
+  return this.selectedTeam.reduce((sum, player) => {
+
+    if (this.captain?.nameEn === player.nameEn) {
+      return sum + player.points * 2;
+    }
+
+    return sum + player.points;
+
+  }, 0);
+}
+
+transfersLeft = 3;
+
 }

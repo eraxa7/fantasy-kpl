@@ -123,6 +123,10 @@
 
   </p>
 
+  <p>
+  ⭐ {{ player.points }} pts
+</p>
+
   <button
     (click)="selectPlayer(player)"
     [disabled]="player.selected"
@@ -176,6 +180,12 @@
     }}
   </strong>
 
+  @if (fantasyService.captain?.nameEn === player.nameEn) {
+
+  <p>⭐ Captain</p>
+
+}
+
   <p>
 
     {{
@@ -198,6 +208,7 @@
 
   <button (click)="removePlayer(player)">
 
+
     {{
       languageService.currentLanguage === 'kz'
         ? 'Өшіру'
@@ -207,6 +218,26 @@
     }}
 
   </button>
+
+  <button (click)="setCaptain(player)">
+    {{
+      fantasyService.captain?.nameEn === player.nameEn
+        ? (
+          languageService.currentLanguage === 'kz'
+            ? 'Капитан'
+            : languageService.currentLanguage === 'ru'
+            ? 'Капитан'
+            : 'Captain'
+        )
+        : (
+          languageService.currentLanguage === 'kz'
+            ? 'Капитан ету'
+            : languageService.currentLanguage === 'ru'
+            ? 'Сделать капитаном'
+            : 'Set as Captain'
+        )
+    }}
+</button>
 
 </div>
 

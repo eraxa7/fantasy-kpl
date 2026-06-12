@@ -24,67 +24,77 @@
 
 </div>
 
-  <div class="row">
-    <div class="position">LB</div>
-<div class="position">
+<div class="row">
 
-  @if (getDefenders().length > 0) {
-
-    {{ getLastName(getDefenders()[0].nameRu) }}
-
-  } @else {
-
-    CB
-
-  }
-
-</div>
-<div class="position">
-
-  @if (getDefenders().length > 1) {
-
-    {{ getLastName(getDefenders()[1].nameRu) }}
-
-  } @else {
-
-    CB
-
-  }
-
-</div>
-    <div class="position">RB</div>
+  <div class="position">
+    @if (getDefenders().length > 0) {
+      {{ getLastName(getDefenders()[0].nameRu) }}
+    } @else {
+      LB
+    }
   </div>
 
-  <div class="row">
-    <div class="position">LM</div>
-<div class="position">
-
-  @if (getMidfielders().length > 0) {
-
-    {{ getLastName(getMidfielders()[0].nameRu) }}
-
-  } @else {
-
-    CM
-
-  }
-
-</div>
-<div class="position">
-
-  @if (getMidfielders().length > 1) {
-
-    {{ getLastName(getMidfielders()[1].nameRu) }}
-
-  } @else {
-
-    CM
-
-  }
-
-</div>
-    <div class="position">RM</div>
+  <div class="position">
+    @if (getDefenders().length > 1) {
+      {{ getLastName(getDefenders()[1].nameRu) }}
+    } @else {
+      CB
+    }
   </div>
+
+  <div class="position">
+    @if (getDefenders().length > 2) {
+      {{ getLastName(getDefenders()[2].nameRu) }}
+    } @else {
+      CB
+    }
+  </div>
+
+  <div class="position">
+    @if (getDefenders().length > 3) {
+      {{ getLastName(getDefenders()[3].nameRu) }}
+    } @else {
+      RB
+    }
+  </div>
+
+</div>
+
+  <div class="row">
+
+  <div class="position">
+    @if (getMidfielders().length > 0) {
+      {{ getLastName(getMidfielders()[0].nameRu) }}
+    } @else {
+      LM
+    }
+  </div>
+
+  <div class="position">
+    @if (getMidfielders().length > 1) {
+      {{ getLastName(getMidfielders()[1].nameRu) }}
+    } @else {
+      CM
+    }
+  </div>
+
+  <div class="position">
+    @if (getMidfielders().length > 2) {
+      {{ getLastName(getMidfielders()[2].nameRu) }}
+    } @else {
+      CM
+    }
+  </div>
+
+  <div class="position">
+    @if (getMidfielders().length > 3) {
+      {{ getLastName(getMidfielders()[3].nameRu) }}
+    } @else {
+      RM
+    }
+  </div>
+
+</div>
 
   <div class="row">
 <div class="position">

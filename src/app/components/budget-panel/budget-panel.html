@@ -31,3 +31,38 @@
   :
   {{ fantasyService.budget.toFixed(1) }} млн ₸
 </p>
+
+<p>
+  {{
+    languageService.currentLanguage === 'kz'
+      ? 'Құраманың дайындығы'
+      : languageService.currentLanguage === 'ru'
+      ? 'Готовность команды'
+      : 'Team readiness'
+  }}
+  :
+  {{ ((fantasyService.selectedPlayers / 15) * 100).toFixed(0) }}%
+</p>
+
+<p>
+  {{
+    languageService.currentLanguage === 'kz'
+      ? 'Трансферлер'
+      : languageService.currentLanguage === 'ru'
+      ? 'Трансферы'
+      : 'Transfers'
+  }}
+
+  {{ fantasyService.transfersLeft }}
+</p>
+
+<p>
+  {{
+    languageService.currentLanguage === 'kz'
+      ? 'Құрама ұпайы'
+      : languageService.currentLanguage === 'ru'
+      ? 'Очки команды'
+      : 'Team points'
+  }}
+  : {{ fantasyService.getTotalPoints() }}
+</p>
